@@ -13,7 +13,7 @@ function connectDb(){
 }
 $db = connectDb();
 
-$query = 'SELECT * FROM `clients` ORDER BY `id` LIMIT 20';
+$query = 'SELECT * FROM `clients` LIMIT 20';
 $usersQueryStat = $db->query($query);
 $usersList = $usersQueryStat->fetchAll(PDO::FETCH_ASSOC);
 
