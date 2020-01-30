@@ -12,12 +12,13 @@ function connectDb(){
     }
 }
 $db = connectDb();
-$query = "SELECT * FROM `clients` WHERE `lastName` LIKE 'M%' " ;
+$query = "SELECT * FROM `clients` WHERE `lastName` LIKE 'M%' ORDER BY `lastName` ASC " ;
 $usersQueryStat = $db->query($query);
 $usersList = $usersQueryStat->fetchAll(PDO::FETCH_ASSOC);
 
 foreach ($usersList as $user):
   ?>
-  <p><?= $user['firstName'] . ' ' . $user['lastName'] ?></p>
+  <p>Nom : <?= $user['firstName']  ?></p>
+  <p>Prénom : <?=  $user['lastName'] ?></p>
 <?php
 endforeach;
